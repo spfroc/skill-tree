@@ -12,10 +12,10 @@ export class NodeService {
 
 
   public getNodes() {
-    return this.http.get('http://localhost:8000/api/nodes');
+    return this.http.get('/api/nodes');
   }
 
   public add(data) {
-    return this.http.post('http://localhost:8000/api/node/add', data);
+    return this.http.post('/api/node/add', data);
   }
 }

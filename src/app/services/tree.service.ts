@@ -15,6 +15,6 @@ export class TreeService {
 
 
   public getTree() {
-    return this.http.get('http://localhost:8000/api/tree');
+    return this.http.get('/api/tree');
   }
 }

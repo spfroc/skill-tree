@@ -10,6 +10,6 @@ export class EdgeService {
 
 
   public getEdges() {
-    return ajax('http://localhost:8000/api/edges');
+    return ajax('/api/edges');
   }
 }
