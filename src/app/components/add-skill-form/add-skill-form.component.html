@@ -1,0 +1,38 @@
+<form nz-form  [formGroup]="validateForm" (ngSubmit)="submitForm()" style="overflow: overlay;">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="lablelSpan" nzFor="name">技能名称</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="请填写10个字以内的名称">
+        <input nz-input formControlName="name" >
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="lablelSpan" nzFor="description">描述</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="请填写200字以内的描述">
+        <textarea nz-input formControlName="description"></textarea>
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="lablelSpan"  nzFor="totalTimeRequired">
+        <span>
+          满修需要
+          <i
+            nz-icon
+            nz-tooltip
+            nzTitle="预计要达到此技能的修炼目标, 需要投入的总时间(按小时计算)"
+            nzType="question-circle"
+            nzTheme="outline"
+          ></i>
+        </span>
+      </nz-form-label>
+      <nz-form-control nzErrorTip="Please input your nickname!">
+        <nz-input-number nz-input nzPrecision='0' nzMax="999" nzMin="1" nzStep="5" formControlName="totalTimeRequired" ></nz-input-number>
+        <span> 小时</span>
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-control [nzOffset]="lablelSpan" [nzSpan]="14">
+        <button nz-button nzType="primary" [disabled]="!validateForm.valid">{{isCreate?'创建':'修改'}}</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>

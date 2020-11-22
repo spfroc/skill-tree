@@ -1,0 +1,38 @@
+<div class="left-bar-container">
+    <button nz-button nzType="dashed" (click)="switchAddSkill()" style="margin: 16px;width: 80%;">
+        <i nz-icon nzType="plus" nzTheme="outline" style="font-size: 14px;"></i>
+            创建新技能
+    </button>
+    <nz-collapse [nzBordered]="false">
+        <nz-collapse-panel nzHeader="未在技能树中" [nzActive]="firstPanelActive">
+            
+        </nz-collapse-panel>
+
+        <nz-collapse-panel nzHeader="已在技能树中" [nzActive]="secondPanelAction">
+            <ul nz-list nzSize="large">
+              <li nz-list-item *ngFor="let item of nodesInSkillTree" nzNoFlex  class="item-li">
+                <div draggable="true">
+                  <!-- <app-skill-avatar [ziImgType]="item.imgType" [ziColor]="item.textAvatorColor" [ziText]="item.name">
+                  </app-skill-avatar> -->
+                  <img width="30px" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3559146562,138019164&fm=15&gp=0.jpg" >
+                  <span style="margin-left: 2px;">{{ item.label }}</span>
+                  <span style="float: right">
+                    <a><i nz-icon nzType="eye" nzTheme="outline"></i></a>
+                    <i nz-icon nzType="drag" nzTheme="outline" style="cursor: move; margin-left: 4px;"></i>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </nz-collapse-panel>
+    </nz-collapse>
+
+    <nz-drawer
+    [nzClosable]="false"
+    [nzWidth]="320"
+    [nzVisible]="isAddSkillFormVisible"
+    nzTitle="创建希望修炼的技能"
+    (nzOnClose)="closeDrawer()"
+>
+    <app-add-skill-form [isAddSkillFormVisible]="isAddSkillFormVisible"></app-add-skill-form>
+</nz-drawer>
+</div>
